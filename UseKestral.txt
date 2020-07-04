@@ -1,0 +1,1 @@
+Tworzy wartrw poœredni¹ miêdzy aplikacj¹ a kilentem, wykorzstywa³em podczas dodawanie certyfikiatu, pomocne przy impementacji z innymi systemami. 
