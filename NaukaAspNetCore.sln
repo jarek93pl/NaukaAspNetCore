@@ -19,25 +19,29 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "KonfigurowanieAplikacji", "
 		UseKestral.txt = UseKestral.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewStart", "ViewStart\ViewStart.csproj", "{31B67478-7969-4FD5-AD1E-BA664E87710F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewStart", "ViewStart\ViewStart.csproj", "{31B67478-7969-4FD5-AD1E-BA664E87710F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseContentRoot", "UseContentRoot\UseContentRoot.csproj", "{B5BFD258-276E-4D12-878D-1BDEE607E065}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UseContentRoot", "UseContentRoot\UseContentRoot.csproj", "{B5BFD258-276E-4D12-878D-1BDEE607E065}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Usedevelopmentexceptionpage_Enviroment", "Usedevelopmentexceptionpage\Usedevelopmentexceptionpage_Enviroment.csproj", "{954D5830-26E3-444D-A59A-EE670ECDDE0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Usedevelopmentexceptionpage_Enviroment", "Usedevelopmentexceptionpage\Usedevelopmentexceptionpage_Enviroment.csproj", "{954D5830-26E3-444D-A59A-EE670ECDDE0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App_Run", "App_Run\App_Run.csproj", "{51F65F3C-4163-4144-B022-ED223353A102}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App_Run", "App_Run\App_Run.csproj", "{51F65F3C-4163-4144-B022-ED223353A102}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middlewere", "Middlewere\Middlewere.csproj", "{61E11901-7D6E-4725-892C-E80EB1BD0915}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middlewere", "Middlewere\Middlewere.csproj", "{61E11901-7D6E-4725-892C-E80EB1BD0915}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Singlenton", "Singlenton\Singlenton.csproj", "{43A327BF-D2A6-4F86-BD45-0F5EC2269A9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Singlenton", "Singlenton\Singlenton.csproj", "{43A327BF-D2A6-4F86-BD45-0F5EC2269A9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseMvc", "UseMvc\UseMvc.csproj", "{91F61285-27E9-4D80-8201-B27DA73C2779}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UseMvc", "UseMvc\UseMvc.csproj", "{91F61285-27E9-4D80-8201-B27DA73C2779}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseexceptionHandler", "UseexceptionHandler\UseexceptionHandler.csproj", "{C7681940-CB83-4796-A027-028588EF8FDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UseexceptionHandler", "UseexceptionHandler\UseexceptionHandler.csproj", "{C7681940-CB83-4796-A027-028588EF8FDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configure", "Configure\Configure.csproj", "{3EF169EF-EC2F-4407-84AE-36A0E0FCF006}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Configure", "Configure\Configure.csproj", "{3EF169EF-EC2F-4407-84AE-36A0E0FCF006}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loging", "Loging\Loging.csproj", "{36356DFB-CC5B-44C3-9246-06F43CB685A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Loging", "Loging\Loging.csproj", "{36356DFB-CC5B-44C3-9246-06F43CB685A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Routing", "Routing", "{59D32DA1-1D1A-4621-AEED-CF8E9AC88574}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutingWConfig", "RoutingWConfig\RoutingWConfig.csproj", "{52D3CED5-15ED-4ED1-8A93-1C35FC9F1FDE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -101,6 +105,10 @@ Global
 		{36356DFB-CC5B-44C3-9246-06F43CB685A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36356DFB-CC5B-44C3-9246-06F43CB685A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36356DFB-CC5B-44C3-9246-06F43CB685A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52D3CED5-15ED-4ED1-8A93-1C35FC9F1FDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52D3CED5-15ED-4ED1-8A93-1C35FC9F1FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52D3CED5-15ED-4ED1-8A93-1C35FC9F1FDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52D3CED5-15ED-4ED1-8A93-1C35FC9F1FDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -119,6 +127,7 @@ Global
 		{C7681940-CB83-4796-A027-028588EF8FDD} = {5542BB6C-093B-45A1-9ACC-DB01243990F8}
 		{3EF169EF-EC2F-4407-84AE-36A0E0FCF006} = {5542BB6C-093B-45A1-9ACC-DB01243990F8}
 		{36356DFB-CC5B-44C3-9246-06F43CB685A6} = {5542BB6C-093B-45A1-9ACC-DB01243990F8}
+		{52D3CED5-15ED-4ED1-8A93-1C35FC9F1FDE} = {59D32DA1-1D1A-4621-AEED-CF8E9AC88574}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9B46200D-393B-4596-8734-D88067013F27}
