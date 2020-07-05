@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -17,15 +19,24 @@ namespace RoutingWConfig
         {
             Configuration = configuration;
         }
-
+        enum en { poniedzia³ek, wtorek, sieroda, czwartek, piatek, sobota, niedziela };
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.Configure<RouteOptions>(options => options.ConstraintMap.Add("Weekdey", typeof(customselector)));
         }
 
+        class customselector : IRouteConstraint
+        {
+            string[] days = new string[] { "poniedzialek", "wtorek", "sieroda", "czwartek", "pi¹tek", "sobota", "niedziela" };
+            public bool Match(HttpContext httpContext, IRouter route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+            {
+                return days.Any(X => httpContext.Request.Path.ToString().Contains(X));
+            }
+        }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -80,6 +91,17 @@ namespace RoutingWConfig
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "Api/{controller=Home}/{action=Index}/{id:int}/{idx:regex(^S)}");
+
+                /* https://localhost:5001/Api/Home/Darek/33/poniedzialek */
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "Api/{controller=Home}/{action=Index}/{id:int}/{idx:Weekdey}");
+
+
+                /* https://localhost:5001/Api2/Home/Darek/33/poniedzialek */
+                endpoints.MapControllerRoute(
+                    name: "nam",
+                    pattern: "Api2/{controller=Home}/{action=Index}/{id:int}/{idx:Weekdey}");
             });
         }
     }
