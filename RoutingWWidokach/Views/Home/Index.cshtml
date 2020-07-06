@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <a asp-controller="Third" asp-action="Morek" asp-route-pom="dziwna nazwa" asp-fragment="fb">z atrybótow html</a>
+    <a href=@Url.Action("Morek","Third")>z akcji</a>
+    <a asp-route="db">z atrybutu i rotingu bez znaczniki</a>
+</div>

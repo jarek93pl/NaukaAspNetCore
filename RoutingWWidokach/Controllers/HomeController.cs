@@ -5,17 +5,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using RoutingWConfig.Models;
+using RoutingWWidokach.Models;
 
-namespace RoutingWConfig.Controllers
+namespace RoutingWWidokach.Controllers
 {
-    
-       [Route("Api2/{controller}/{action}/{id:int}/{idx:Weekdey}")]
-    public class Home2Controller : Controller
+    public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
 
-        public Home2Controller(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
@@ -34,17 +32,6 @@ namespace RoutingWConfig.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
-        public IActionResult Daria()
-        {
-            ViewBag.Id = RouteData.Values["id"];
-            return View();
-        }
-
-        public IActionResult Darek()
-        {
-            return Json(new { id = RouteData.Values["id"], name = $"z api 2: {RouteData.Values["idx"]}" });
         }
     }
 }

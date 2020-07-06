@@ -26,9 +26,59 @@ namespace RoutingWConfig
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.Configure<RouteOptions>(options => options.ConstraintMap.Add("Weekdey", typeof(customselector)));
+            services.Configure<RouteOptions>(options =>
+            {
+                options.ConstraintMap.Add("Weekdey", typeof(customselector));
+                options.LowercaseUrls = true;
+                options.AppendTrailingSlash = true;
+            });
+        }
+        class VirtualPathRouter : IRouter
+        {
+            public readonly string textToUse;
+            public VirtualPathRouter(string TextToUse)
+            {
+                textToUse = TextToUse;
+            }
+            public VirtualPathData GetVirtualPath(VirtualPathContext context)
+            {
+                if (context.HttpContext.Request.Path.ToString().Contains(textToUse))
+                {
+                    return new VirtualPathData(this, "Api2/Home2Controller/Daria");
+                }
+                else
+                {
+                    return null;
+                }
+            }
+
+            public Task RouteAsync(RouteContext context)
+            {
+                return Task.CompletedTask;
+            }
         }
 
+        class ConstTextRouter : IRouter
+        {
+            public readonly string textToUse;
+            public ConstTextRouter(string TextToUse)
+            {
+                textToUse = TextToUse;
+            }
+            public VirtualPathData GetVirtualPath(VirtualPathContext context)
+            {
+                return null;
+            }
+
+            public Task RouteAsync(RouteContext context)
+            {
+                if (context.HttpContext.Request.Path.ToString().Contains(textToUse))
+                {
+                    return context.HttpContext.Response.WriteAsync("z routingu");
+                }
+                return Task.CompletedTask;
+            }
+        }
         class customselector : IRouteConstraint
         {
             string[] days = new string[] { "poniedzialek", "wtorek", "sieroda", "czwartek", "pi¹tek", "sobota", "niedziela" };
@@ -52,7 +102,6 @@ namespace RoutingWConfig
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
 
             app.UseAuthorization();
@@ -102,6 +151,17 @@ namespace RoutingWConfig
                 endpoints.MapControllerRoute(
                     name: "nam",
                     pattern: "Api2/{controller=Home}/{action=Index}/{id:int}/{idx:Weekdey}");
+
+
+                /* https://localhost:5001/Api2/Home/Darek/33/poniedzialek */
+                endpoints.MapControllerRoute(
+                    name: "nam",
+                    pattern: "Api2/{controller=Home}/{action=Index}/{id:int}/{idx:Weekdey}");
+
+                /* https://localhost:5001/Api3 */
+                endpoints.MapGet("api3", x => x.Response.WriteAsync("text z api3"));
+
+
             });
         }
     }
