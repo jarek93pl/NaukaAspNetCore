@@ -5,16 +5,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using PocoControler.Models;
+using ZwracaneTypy.Models;
 
-namespace PocoControler.Controllers
+namespace ZwracaneTypy.Controllers
 {
-    public class HomeController 
+    public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
 
-        [ControllerContext]
-        public ControllerContext MyProperty { get; set; }
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -22,8 +20,13 @@ namespace PocoControler.Controllers
 
         public IActionResult Index()
         {
-            return new JsonResult(new {id = MyProperty.HttpContext.Request.Path });
+            return View();
         }
 
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+        public IActionResult Other() => new ViewResult() { ViewName = "Privacy" };
     }
 }
