@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <form asp-action="Privacy" asp-controller="Home">
+
+        <label for="FirstName">Imię :</label>
+        <input id="FirstName" type="text" name="FirstName" />
+
+        <label for="LastName">Nazwisko :</label>
+        <input type="text" name="LastName" />
+        <input type="submit" />
+    </form>
+</div>
