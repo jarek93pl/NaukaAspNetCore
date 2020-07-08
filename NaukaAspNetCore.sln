@@ -49,15 +49,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Areas", "Areas\Areas.csproj
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kontrolery", "Kontrolery", "{8F2978D7-F4E2-4F56-A104-FD908C7A562F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrzymanieDanych", "Sesja\TrzymanieDanych.csproj", "{000E0FA3-435B-4C81-9D00-D566FFBB3E77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrzymanieDanych", "Sesja\TrzymanieDanych.csproj", "{000E0FA3-435B-4C81-9D00-D566FFBB3E77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocoControler", "PocoControler\PocoControler.csproj", "{E3C23A7E-1371-47D4-8649-0C861965DE03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PocoControler", "PocoControler\PocoControler.csproj", "{E3C23A7E-1371-47D4-8649-0C861965DE03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZwracaneTypy", "ZwracaneTypy\ZwracaneTypy.csproj", "{C6265DA2-456F-4E87-A57A-460317F7F339}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZwracaneTypy", "ZwracaneTypy\ZwracaneTypy.csproj", "{C6265DA2-456F-4E87-A57A-460317F7F339}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InformacjeOKontrolerze", "InformacjeOKontrolerze\InformacjeOKontrolerze.csproj", "{16BA763F-74F2-4E2B-B599-5136604A91DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InformacjeOKontrolerze", "InformacjeOKontrolerze\InformacjeOKontrolerze.csproj", "{16BA763F-74F2-4E2B-B599-5136604A91DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Request_Form", "Request_Form\Request_Form.csproj", "{373DBE33-1F13-4B32-A4BE-17482466F530}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Request_Form", "Request_Form\Request_Form.csproj", "{373DBE33-1F13-4B32-A4BE-17482466F530}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

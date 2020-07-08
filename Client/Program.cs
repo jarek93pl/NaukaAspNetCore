@@ -11,6 +11,8 @@ namespace Client
         static HttpClient client = new HttpClient();
         static void Main(string[] args)
         {
+            Console.WriteLine("kliknij by rozpocząć");
+            Console.ReadLine();
             mt().Wait();
 
         }
@@ -21,7 +23,8 @@ namespace Client
             person.FirstName = "Imie";
             person.LastName = "Nazwisko";
             HttpResponseMessage response = await client.PostAsJsonAsync("https://localhost:5001/WeatherForecast", person);
-            Person resulut = JsonConvert.DeserializeObject<Person>(await response.Content.ReadAsStringAsync());
+            string txt = await response.Content.ReadAsStringAsync();
+            Person resulut = JsonConvert.DeserializeObject<Person>(txt);
             response.EnsureSuccessStatusCode();
             Console.WriteLine($"Hej! {resulut.FirstName} {resulut.LastName} {resulut.Id}");
         }

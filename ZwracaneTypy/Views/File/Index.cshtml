@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<img src=@Url.Action("Obraz1") />
+<img src=@Url.Action("Obraz2") />
+<img src=@Url.Action(nameof( ZwracaneTypy.Controllers.FileController.Obraz3)) />
+<img src=@Url.Action(nameof( ZwracaneTypy.Controllers.FileController.Obraz4)) />
+
