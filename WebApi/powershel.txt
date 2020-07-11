@@ -1,0 +1,1 @@
+﻿ Invoke-RestMethod -Uri https://localhost:5001/weatherforecast/Get
