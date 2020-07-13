@@ -1,0 +1,31 @@
+﻿@model Person
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <a asp-action="@nameof(AtrynutyFormularza.Controllers.HomeController.Strona2)" asp-controller="Home">Wejdź</a>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <form method="post" asp-antiforgery="true">
+        <div>
+            <label asp-for=@(Model.FirstName)></label>
+            <input asp-for=@(Model.FirstName) />
+        </div>
+        <div>
+            <label asp-for=@(Model.LastName)></label>
+            <input asp-for=@(Model.LastName) />
+        </div>
+        <div>
+            <label asp-for=@(Model.Waga)></label>
+            <input asp-format="{0:N2}" asp-for=@(Model.Waga) />
+        </div>
+        <div>
+            <label asp-for=@(Model.EyeColor)></label>
+            <select asp-for=@(Model.EyeColor) asp-items=@(new SelectList( ViewBag.EyeColor))></select>
+        </div>
+        <div>
+            <input type="submit" />
+        </div>
+    </form>
+</div>
