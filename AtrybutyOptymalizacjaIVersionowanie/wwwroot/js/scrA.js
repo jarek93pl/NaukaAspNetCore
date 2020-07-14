@@ -1,0 +1,1 @@
+﻿alert('wiadomośc z skryptu a')
