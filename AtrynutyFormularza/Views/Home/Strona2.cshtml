@@ -4,4 +4,167 @@
 }
 
 <h1>Strona2</h1>
+<div>
+    A Simple Protocol (ASP)
+    ASP is a bare-bones transport-layer protocol which uses IP to transmit messages to an ASP "port" at the destination host. ASP is somewhat similar to UDP in the real world.
+    The main purpose of ASP is as a simple example, to demonstrate the infrastructure which has to be in place to implement even the simplest protocol. As such, it makes a good template for constructing other protocols. ASP itself is really not that simple, at least not until you understand the x-kernel!
 
+    What does ASP do?
+    ASP performs a simple multiplexing function. That is, there can be several ASP sessions between different pairs of processes on the same two computers. In this case, there is an IP "connection" between the two computers -- the two endpoints are represented by the IP addresses of the two machines. But each endpoint of a separate ASP session has a distinct ASP port address. The ASP port address, plus the IP address, uniquely identifies the endpoint of the ASP connection.
+
+
+    This very schematic diagram shows the crucical difference between session objects and port objects
+
+    Each session object represents the endpoint of an ASP connection. As ASP is such a simple protocol, it turns out that the session needs to hold no data except for a template message header.
+    The ASP protocol object is responsible for directing incoming ASP messages to the appropriate connections. The protocol object contains the ID map which is essentially a list of all open connections.
+    The External ASP header file
+    /*
+    * asp.h
+    *
+    * x-kernel v3.3
+    *
+    * Copyright (c) 1993,1991,1990,1996  Arizona Board of Regents
+    */
+
+    typedef u_short ASPport;
+    --Is that all? Yes, this is all that any other protocol needs to know about ASP.
+    A higher-level protocol or application (HLP), which wanted to use ASP to transmit messages to its peer on another machine, would need to know the IP address of the remote machine and the ASP port number of its peer. The ASP port address must have some data type, which is what the external header file provides.
+
+    But doesn't the HLP need to know what functions are provided by ASP, such as opening and closing connections, transmitting messages, etc? In ASP, these functions all follow a standard interface. For example, to open an ASP connection the HLP will contain code which looks something like this:
+
+    xOpen(myProtl, LLP, p)
+    where myProtl is the HLP protocol object, LLP is the lower-level protocol object (in this case the ASP protocol object), and p is the participant list, which contains the addresses of the "participants" on both ends of the conversation.
+    The generic "xOpen" call gets linked into the aspOpen() call which will appear later as part of the ASP implementation. This linking is performed by a complex "make" operation, which we'll discuss later.
+
+    Next: The asp internal header file, asp_internal.h
+    A Simple Protocol (ASP)
+    ASP is a bare-bones transport-layer protocol which uses IP to transmit messages to an ASP "port" at the destination host. ASP is somewhat similar to UDP in the real world.
+    The main purpose of ASP is as a simple example, to demonstrate the infrastructure which has to be in place to implement even the simplest protocol. As such, it makes a good template for constructing other protocols. ASP itself is really not that simple, at least not until you understand the x-kernel!
+
+    What does ASP do?
+    ASP performs a simple multiplexing function. That is, there can be several ASP sessions between different pairs of processes on the same two computers. In this case, there is an IP "connection" between the two computers -- the two endpoints are represented by the IP addresses of the two machines. But each endpoint of a separate ASP session has a distinct ASP port address. The ASP port address, plus the IP address, uniquely identifies the endpoint of the ASP connection.
+
+
+    This very schematic diagram shows the crucical difference between session objects and port objects
+
+    Each session object represents the endpoint of an ASP connection. As ASP is such a simple protocol, it turns out that the session needs to hold no data except for a template message header.
+    The ASP protocol object is responsible for directing incoming ASP messages to the appropriate connections. The protocol object contains the ID map which is essentially a list of all open connections.
+    The External ASP header file
+    /*
+    * asp.h
+    *
+    * x-kernel v3.3
+    *
+    * Copyright (c) 1993,1991,1990,1996  Arizona Board of Regents
+    */
+
+    typedef u_short ASPport;
+    --Is that all? Yes, this is all that any other protocol needs to know about ASP.
+    A higher-level protocol or application (HLP), which wanted to use ASP to transmit messages to its peer on another machine, would need to know the IP address of the remote machine and the ASP port number of its peer. The ASP port address must have some data type, which is what the external header file provides.
+
+    But doesn't the HLP need to know what functions are provided by ASP, such as opening and closing connections, transmitting messages, etc? In ASP, these functions all follow a standard interface. For example, to open an ASP connection the HLP will contain code which looks something like this:
+
+    xOpen(myProtl, LLP, p)
+    where myProtl is the HLP protocol object, LLP is the lower-level protocol object (in this case the ASP protocol object), and p is the participant list, which contains the addresses of the "participants" on both ends of the conversation.
+    The generic "xOpen" call gets linked into the aspOpen() call which will appear later as part of the ASP implementation. This linking is performed by a complex "make" operation, which we'll discuss later.
+
+    Next: The asp internal header file, asp_internal.h
+    A Simple Protocol (ASP)
+    ASP is a bare-bones transport-layer protocol which uses IP to transmit messages to an ASP "port" at the destination host. ASP is somewhat similar to UDP in the real world.
+    The main purpose of ASP is as a simple example, to demonstrate the infrastructure which has to be in place to implement even the simplest protocol. As such, it makes a good template for constructing other protocols. ASP itself is really not that simple, at least not until you understand the x-kernel!
+
+    What does ASP do?
+    ASP performs a simple multiplexing function. That is, there can be several ASP sessions between different pairs of processes on the same two computers. In this case, there is an IP "connection" between the two computers -- the two endpoints are represented by the IP addresses of the two machines. But each endpoint of a separate ASP session has a distinct ASP port address. The ASP port address, plus the IP address, uniquely identifies the endpoint of the ASP connection.
+
+
+    This very schematic diagram shows the crucical difference between session objects and port objects
+
+    Each session object represents the endpoint of an ASP connection. As ASP is such a simple protocol, it turns out that the session needs to hold no data except for a template message header.
+    The ASP protocol object is responsible for directing incoming ASP messages to the appropriate connections. The protocol object contains the ID map which is essentially a list of all open connections.
+    The External ASP header file
+    /*
+    * asp.h
+    *
+    * x-kernel v3.3
+    *
+    * Copyright (c) 1993,1991,1990,1996  Arizona Board of Regents
+    */
+
+    typedef u_short ASPport;
+    --Is that all? Yes, this is all that any other protocol needs to know about ASP.
+    A higher-level protocol or application (HLP), which wanted to use ASP to transmit messages to its peer on another machine, would need to know the IP address of the remote machine and the ASP port number of its peer. The ASP port address must have some data type, which is what the external header file provides.
+
+    But doesn't the HLP need to know what functions are provided by ASP, such as opening and closing connections, transmitting messages, etc? In ASP, these functions all follow a standard interface. For example, to open an ASP connection the HLP will contain code which looks something like this:
+
+    xOpen(myProtl, LLP, p)
+    where myProtl is the HLP protocol object, LLP is the lower-level protocol object (in this case the ASP protocol object), and p is the participant list, which contains the addresses of the "participants" on both ends of the conversation.
+    The generic "xOpen" call gets linked into the aspOpen() call which will appear later as part of the ASP implementation. This linking is performed by a complex "make" operation, which we'll discuss later.
+
+    Next: The asp internal header file, asp_internal.h
+    A Simple Protocol (ASP)
+    ASP is a bare-bones transport-layer protocol which uses IP to transmit messages to an ASP "port" at the destination host. ASP is somewhat similar to UDP in the real world.
+    The main purpose of ASP is as a simple example, to demonstrate the infrastructure which has to be in place to implement even the simplest protocol. As such, it makes a good template for constructing other protocols. ASP itself is really not that simple, at least not until you understand the x-kernel!
+
+    What does ASP do?
+    ASP performs a simple multiplexing function. That is, there can be several ASP sessions between different pairs of processes on the same two computers. In this case, there is an IP "connection" between the two computers -- the two endpoints are represented by the IP addresses of the two machines. But each endpoint of a separate ASP session has a distinct ASP port address. The ASP port address, plus the IP address, uniquely identifies the endpoint of the ASP connection.
+
+
+    This very schematic diagram shows the crucical difference between session objects and port objects
+
+    Each session object represents the endpoint of an ASP connection. As ASP is such a simple protocol, it turns out that the session needs to hold no data except for a template message header.
+    The ASP protocol object is responsible for directing incoming ASP messages to the appropriate connections. The protocol object contains the ID map which is essentially a list of all open connections.
+    The External ASP header file
+    /*
+    * asp.h
+    *
+    * x-kernel v3.3
+    *
+    * Copyright (c) 1993,1991,1990,1996  Arizona Board of Regents
+    */
+
+    typedef u_short ASPport;
+    --Is that all? Yes, this is all that any other protocol needs to know about ASP.
+    A higher-level protocol or application (HLP), which wanted to use ASP to transmit messages to its peer on another machine, would need to know the IP address of the remote machine and the ASP port number of its peer. The ASP port address must have some data type, which is what the external header file provides.
+
+    But doesn't the HLP need to know what functions are provided by ASP, such as opening and closing connections, transmitting messages, etc? In ASP, these functions all follow a standard interface. For example, to open an ASP connection the HLP will contain code which looks something like this:
+
+    xOpen(myProtl, LLP, p)
+    where myProtl is the HLP protocol object, LLP is the lower-level protocol object (in this case the ASP protocol object), and p is the participant list, which contains the addresses of the "participants" on both ends of the conversation.
+    The generic "xOpen" call gets linked into the aspOpen() call which will appear later as part of the ASP implementation. This linking is performed by a complex "make" operation, which we'll discuss later.
+
+    Next: The asp internal header file, asp_internal.h
+    A Simple Protocol (ASP)
+    ASP is a bare-bones transport-layer protocol which uses IP to transmit messages to an ASP "port" at the destination host. ASP is somewhat similar to UDP in the real world.
+    The main purpose of ASP is as a simple example, to demonstrate the infrastructure which has to be in place to implement even the simplest protocol. As such, it makes a good template for constructing other protocols. ASP itself is really not that simple, at least not until you understand the x-kernel!
+
+    What does ASP do?
+    ASP performs a simple multiplexing function. That is, there can be several ASP sessions between different pairs of processes on the same two computers. In this case, there is an IP "connection" between the two computers -- the two endpoints are represented by the IP addresses of the two machines. But each endpoint of a separate ASP session has a distinct ASP port address. The ASP port address, plus the IP address, uniquely identifies the endpoint of the ASP connection.
+
+
+    This very schematic diagram shows the crucical difference between session objects and port objects
+
+    Each session object represents the endpoint of an ASP connection. As ASP is such a simple protocol, it turns out that the session needs to hold no data except for a template message header.
+    The ASP protocol object is responsible for directing incoming ASP messages to the appropriate connections. The protocol object contains the ID map which is essentially a list of all open connections.
+    The External ASP header file
+    /*
+    * asp.h
+    *
+    * x-kernel v3.3
+    *
+    * Copyright (c) 1993,1991,1990,1996  Arizona Board of Regents
+    */
+
+    typedef u_short ASPport;
+    --Is that all? Yes, this is all that any other protocol needs to know about ASP.
+    A higher-level protocol or application (HLP), which wanted to use ASP to transmit messages to its peer on another machine, would need to know the IP address of the remote machine and the ASP port number of its peer. The ASP port address must have some data type, which is what the external header file provides.
+
+    But doesn't the HLP need to know what functions are provided by ASP, such as opening and closing connections, transmitting messages, etc? In ASP, these functions all follow a standard interface. For example, to open an ASP connection the HLP will contain code which looks something like this:
+
+    xOpen(myProtl, LLP, p)
+    where myProtl is the HLP protocol object, LLP is the lower-level protocol object (in this case the ASP protocol object), and p is the participant list, which contains the addresses of the "participants" on both ends of the conversation.
+    The generic "xOpen" call gets linked into the aspOpen() call which will appear later as part of the ASP implementation. This linking is performed by a complex "make" operation, which we'll discuss later.
+
+    Next: The asp internal header file, asp_internal.h
+</div>
+
+<div id="d2"></div>
