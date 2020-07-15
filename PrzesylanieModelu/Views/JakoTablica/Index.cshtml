@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+<form method="post">
+    @for (int i = 0; i < 5; i++)
+    {
+        <div>
+            <label for="table">@i :</label>
+            <input type="text" name="table" />
+        </div>
+    }
+    <input type="submit" />
+</form>
+<h1>Index</h1>
+

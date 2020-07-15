@@ -1,0 +1,14 @@
+﻿@model PrzesylanieModelu.Models.UsePartial.Men
+@{
+    ViewData["Title"] = "Men";
+}
+
+<h1>Men</h1>
+<form method="post">
+    <div>
+        <label asp-for="SizeBiceps">Wielkośc bicepsu :</label>
+        <input asp-for="SizeBiceps" />
+        <partial name="Person"></partial>
+    </div>
+    <input type="submit" />
+</form>

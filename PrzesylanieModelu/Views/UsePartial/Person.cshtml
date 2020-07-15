@@ -1,0 +1,17 @@
+﻿@model PrzesylanieModelu.Models.UsePartial.Person
+
+<div>
+    <label asp-for="Weight">Waga :</label>
+    <input asp-for="Weight" />
+</div>
+
+<div>
+    <label asp-for="FirstName">Imie :</label>
+    <input asp-for="FirstName" />
+</div>
+
+<div>
+    <label asp-for="LastName">Nazwisko :</label>
+    <input asp-for="LastName" />
+</div>
+<partial name="Eyes"></partial>

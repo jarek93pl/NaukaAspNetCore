@@ -1,0 +1,10 @@
+﻿@model PrzesylanieModelu.Models.UsePartial.Eyes
+@{
+    ViewData["Title"] = "Eyes";
+}
+<div>
+    <label asp-for="Color">Kolor oczu:</label>
+    <select asp-for="Color" asp-items="@(new SelectList(ViewBag.TypeEyes))"></select>
+</div>
+<h1>Eyes</h1>
+

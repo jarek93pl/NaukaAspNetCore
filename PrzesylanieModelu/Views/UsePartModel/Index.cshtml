@@ -1,0 +1,18 @@
+﻿@model PrzesylanieModelu.Models.UsePartial.Person
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<form asp-action="ShowAdress">
+    <div>
+        <label asp-for="AddressHome.City"> Miasto</label>
+        <input asp-for="AddressHome.City" />
+    </div>
+    <div>
+        <label asp-for="AddressHome.Streat"> Ulica</label>
+        <input asp-for="AddressHome.Streat" />
+    </div>
+    <input type="submit" />
+</form>

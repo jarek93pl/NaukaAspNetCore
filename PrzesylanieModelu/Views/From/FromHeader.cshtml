@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "FromHeader";
+}
+
+<h1>FromHeader</h1>
+
+<div>
+    <label for="valH">Wartość Header :</label>
+    <input id="valH" type="number" />
+    <label for="valB">Wartość body :</label>
+    <input id="valB" type="number" />
+    <input id="pass" type="submit" />
+</div>
+<div id="result"></div>
+@section Scripts
+{
+    <script type="text/javascript">
+        $('#pass').click(function myfunction() {
+
+            $.ajax({
+                url: window.location.href,
+                type: 'post',
+                data: $('#valB').val() ,
+                headers: {
+                    id: $('#valH').val(),
+                },
+                contentType: "application/json",
+                dataType: 'application/json',
+                success: function (data) {
+                    alert(data);
+                }
+            });
+
+        });
+    </script>
+}
