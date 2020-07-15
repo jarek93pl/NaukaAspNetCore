@@ -1,0 +1,28 @@
+﻿@model MVCCodeValidateModelData
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<form method="post">
+    <div>
+        <label asp-for="Value">Wartość : </label>
+        <input asp-for="Value" type="text" />
+        <span asp-validation-for="Value"></span>
+    </div>
+    <div>
+
+        <label asp-for="Text">Text :</label>
+        <input asp-for="Text" type="text" />
+        <span asp-validation-for="Text"></span>
+    </div>
+    <div>
+        <input type="submit" />
+    </div>
+
+</form>
+@section Scripts
+{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
