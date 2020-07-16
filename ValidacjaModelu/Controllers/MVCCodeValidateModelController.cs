@@ -28,12 +28,13 @@ namespace ValidacjaModelu.Controllers
             if (!ModelState.IsValid)
             {
                 System.Diagnostics.Debug.WriteLine("model nie jest poprawny");
-                if (ModelState.GetValidationState(nameof(MVCCodeValidateModelData.Value))==Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid)
+                if (ModelState.GetValidationState(nameof(MVCCodeValidateModelData.Value)) == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid)
                 {
 
                     System.Diagnostics.Debug.WriteLine("tekst nie jest uzupełniony");
                 }
             }
+            ModelState.AddModelError("", "błąd");
             return View();
         }
         public IActionResult TextVal(string text)

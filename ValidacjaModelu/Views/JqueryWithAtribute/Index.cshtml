@@ -1,0 +1,51 @@
+﻿@model JqueryWithAtributeData
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<div>
+    <label asp-for="Agrement"></label>
+    <input type="checkbox" asp-for="Agrement" />
+</div>
+
+<div>
+    <label asp-for="Email"></label>
+    <input type="text" asp-for="Email" />
+</div>
+
+<div>
+    <label asp-for="RepitEmail"></label>
+    <input type="text" asp-for="RepitEmail" />
+</div>
+<input id="pass" type="submit" />
+@section Scripts
+{
+    <script type="text/javascript">
+        $('#pass').click(function myfunction(e) {
+            e.preventDefault();
+            $.ajax({
+                url: window.location.href,
+                type: 'post',
+                data:
+                {
+                    Agrement: $('[name=Agrement]').prop(":checked"),
+                    Email: $('[name=Email]').val(),
+                    RepitEmail: $('[name=RepitEmail]').val(),
+                }
+                ,
+                contentType: "application/json",
+                dataType: 'application/json',
+                success: function (data) {
+                    alert(data);
+
+                }
+                , error: function (f) {
+                    alert(f);
+                }
+            });
+
+        });
+    </script>
+}

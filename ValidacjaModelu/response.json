@@ -1,0 +1,192 @@
+{
+  "log": {
+    "version": "1.2",
+    "creator": {
+      "name": "WebInspector",
+      "version": "537.36"
+    },
+    "pages": [],
+    "entries": [
+      {
+        "startedDateTime": "2020-07-16T11:26:06.046Z",
+        "time": 1919.3690000010974,
+        "request": {
+          "method": "POST",
+          "url": "https://localhost:5001/JqueryWithAtribute/index",
+          "httpVersion": "http/2.0",
+          "headers": [
+            {
+              "name": ":method",
+              "value": "POST"
+            },
+            {
+              "name": ":authority",
+              "value": "localhost:5001"
+            },
+            {
+              "name": ":scheme",
+              "value": "https"
+            },
+            {
+              "name": ":path",
+              "value": "/JqueryWithAtribute/index"
+            },
+            {
+              "name": "content-length",
+              "value": "24"
+            },
+            {
+              "name": "pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "cache-control",
+              "value": "no-cache"
+            },
+            {
+              "name": "accept",
+              "value": "*/*"
+            },
+            {
+              "name": "x-requested-with",
+              "value": "XMLHttpRequest"
+            },
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36 Edg/83.0.478.64"
+            },
+            {
+              "name": "content-type",
+              "value": "application/json"
+            },
+            {
+              "name": "origin",
+              "value": "https://localhost:5001"
+            },
+            {
+              "name": "sec-fetch-site",
+              "value": "same-origin"
+            },
+            {
+              "name": "sec-fetch-mode",
+              "value": "cors"
+            },
+            {
+              "name": "sec-fetch-dest",
+              "value": "empty"
+            },
+            {
+              "name": "referer",
+              "value": "https://localhost:5001/JqueryWithAtribute/index"
+            },
+            {
+              "name": "accept-encoding",
+              "value": "gzip, deflate, br"
+            },
+            {
+              "name": "accept-language",
+              "value": "pl,en;q=0.9,en-GB;q=0.8,en-US;q=0.7"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 24,
+          "postData": {
+            "mimeType": "application/json",
+            "text": "Email=ef&RepitEmail=efef"
+          }
+        },
+        "response": {
+          "status": 200,
+          "statusText": "",
+          "httpVersion": "http/2.0",
+          "headers": [
+            {
+              "name": "status",
+              "value": "200"
+            },
+            {
+              "name": "date",
+              "value": "Thu, 16 Jul 2020 11:26:07 GMT"
+            },
+            {
+              "name": "content-type",
+              "value": "text/plain; charset=utf-8"
+            },
+            {
+              "name": "server",
+              "value": "Kestrel"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 8,
+            "mimeType": "text/plain"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 128
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 1.2840000007943018,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.365,
+          "wait": 1917.0469999998422,
+          "receive": 0.6730000004608883,
+          "_blocked_queueing": 0.6310000007943017
+        },
+        "serverIPAddress": "[::1]",
+        "_initiator": {
+          "type": "script",
+          "stack": {
+            "callFrames": [
+              {
+                "functionName": "send",
+                "scriptId": "48",
+                "url": "https://localhost:5001/lib/jquery/dist/jquery.min.js",
+                "lineNumber": 1,
+                "columnNumber": 80265
+              },
+              {
+                "functionName": "ajax",
+                "scriptId": "48",
+                "url": "https://localhost:5001/lib/jquery/dist/jquery.min.js",
+                "lineNumber": 1,
+                "columnNumber": 77117
+              },
+              {
+                "functionName": "myfunction",
+                "scriptId": "50",
+                "url": "https://localhost:5001/JqueryWithAtribute/index",
+                "lineNumber": 67,
+                "columnNumber": 14
+              },
+              {
+                "functionName": "dispatch",
+                "scriptId": "48",
+                "url": "https://localhost:5001/lib/jquery/dist/jquery.min.js",
+                "lineNumber": 1,
+                "columnNumber": 41771
+              },
+              {
+                "functionName": "y.handle",
+                "scriptId": "48",
+                "url": "https://localhost:5001/lib/jquery/dist/jquery.min.js",
+                "lineNumber": 1,
+                "columnNumber": 39790
+              }
+            ]
+          }
+        },
+        "_priority": "High",
+        "_resourceType": "xhr",
+        "connection": "37"
+      }
+    ]
+  }
+}
