@@ -22,6 +22,7 @@ namespace IdentityZNetCore.Controllers
             return View();
         }
 
+        
         [AllowAnonymous]
         public IActionResult Page2()
         {
@@ -33,6 +34,11 @@ namespace IdentityZNetCore.Controllers
             return View();
         }
 
+        [Authorize(Policy = "UrzytkownikZWawy")]
+        public IActionResult PageFromPolicyUrzytkownikZWawy()
+        {
+            return View();
+        }
         public async Task<IActionResult> GetRole([FromQuery] string nameRole)
         {
             if (await _roleManager.RoleExistsAsync(nameRole))

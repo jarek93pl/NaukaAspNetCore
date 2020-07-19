@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "ListClaim";
+}
+
+<h1>ListClaim</h1>
+<table>
+    @foreach (var item in User.Claims)
+    {
+        <tr>
+            <td>
+                @item.Subject.Name
+            </td>
+            <td>
+                @item.Value
+            </td>
+        </tr>
+    }
+</table>

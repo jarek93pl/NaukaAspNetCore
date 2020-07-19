@@ -15,6 +15,7 @@ using IdentityZNetCore.Validator;
 using Microsoft.AspNetCore.Http;
 using Microsoft.CodeAnalysis.Options;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication;
 
 namespace IdentityZNetCore
 {
@@ -40,18 +41,28 @@ namespace IdentityZNetCore
             //AddDefaultTokenProviders
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme);
+            services.AddAuthorization(option =>
+            {
+                option.AddPolicy("UrzytkownikZWawy", policy =>
+                 {
+                     policy.RequireRole("WW");
+                     policy.RequireClaim(LocationClaimsProvider.NameClaimToRegion, Region.Mazowieckie.ToString());
+                 });
+            }
+            );
             services.ConfigureApplicationCookie(options =>
             {
                 options.AccessDeniedPath = "/Account/AccessDenied";
                 options.Cookie.Name = "YourAppCookieName";
                 options.SlidingExpiration = true;
             });
-            
+            services.AddScoped<IClaimsTransformation, LocationClaimsProvider>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            ///kolejnoœæ ma znaczeni !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             app.UseAuthentication();
             if (env.IsDevelopment())
             {

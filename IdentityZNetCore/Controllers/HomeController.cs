@@ -67,15 +67,14 @@ namespace IdentityZNetCore.Controllers
             await _roleManager.CreateAsync(new IdentityRole("X"));
             return View();
         }
-        public IActionResult Privacy()
+        public async Task<IActionResult> SetRegion(string userName, string region)
         {
-            return View();
-        }
+            var userResult = await _userManager.FindByNameAsync(userName);
+            userResult.Region =(Region) Enum.Parse(typeof(Region), region);
+            await _userManager.UpdateAsync(userResult);
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            ViewBag.Text = $"Urzytkownikowi {userName} przypisanoe {region}";
+            return View();
         }
     }
 }

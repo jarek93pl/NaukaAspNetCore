@@ -1,2 +1,5 @@
 ﻿Add-Migration InitialCreate
 Update-Database
+
+DOdanie do bazy pola na urzytkowniku 
+Add-Migration AddBlogCreatedTimestamp
