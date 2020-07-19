@@ -12,6 +12,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using IdentityZNetCore.Models;
 using IdentityZNetCore.Validator;
+using Microsoft.AspNetCore.Http;
+using Microsoft.CodeAnalysis.Options;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace IdentityZNetCore
 {
@@ -34,12 +37,22 @@ namespace IdentityZNetCore
                 option.Password.RequireDigit = false;
                 option.SignIn.RequireConfirmedEmail = false;
             }).AddEntityFrameworkStores<ContextDBIdentity>().AddDefaultTokenProviders().AddUserValidator<UserValidator>().AddPasswordValidator<PasswordValidator>();
+            //AddDefaultTokenProviders
 
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme);
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.AccessDeniedPath = "/Account/AccessDenied";
+                options.Cookie.Name = "YourAppCookieName";
+                options.SlidingExpiration = true;
+            });
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseAuthentication();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -52,11 +65,10 @@ namespace IdentityZNetCore
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
 
             app.UseAuthorization();
-
+            //app.UseCookiePolicy();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

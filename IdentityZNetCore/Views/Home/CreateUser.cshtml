@@ -8,10 +8,14 @@
 <div>
     <form method="post">
         <div>
-            <label asp-for="UserName" />
+            <label asp-for="UserName">Urzytkownik :</label>
             <input asp-for="UserName" />
         </div>
 
+        <div>
+            <label asp-for="PasswordHash">Hasło :</label> 
+            <input type="password" asp-for="PasswordHash" />
+        </div>
         <input type="submit" />
     </form>
     <div asp-validation-summary="All"></div>
