@@ -17,6 +17,7 @@ namespace Configure
         {
             Configuration = configuration;
             string nazwa = configuration.GetSection("DB").Value;
+            System.Diagnostics.Debug.WriteLine(Configuration["Element1:Element2"]);
             throw new NotImplementedException(nazwa);
         }
 
