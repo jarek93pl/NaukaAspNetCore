@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.CodeAnalysis.Options;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 
 namespace IdentityZNetCore
 {
@@ -47,6 +48,7 @@ namespace IdentityZNetCore
                  {
                      policy.RequireRole("WW");
                      policy.RequireClaim(LocationClaimsProvider.NameClaimToRegion, Region.Mazowieckie.ToString());
+                     policy.AddRequirements(new ForJarekRequirement());
                  });
             }
             );
@@ -56,6 +58,8 @@ namespace IdentityZNetCore
                 options.Cookie.Name = "YourAppCookieName";
                 options.SlidingExpiration = true;
             });
+
+            services.AddTransient<IAuthorizationHandler, ForJarekHandler>();// po za typem ma znaczenie jaki interfej siê wstrzuje 
             services.AddScoped<IClaimsTransformation, LocationClaimsProvider>();
         }
 
